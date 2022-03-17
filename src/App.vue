@@ -1,23 +1,20 @@
 <template>
-<div>
-  <div class="menu">
-    <div class="menu-item"><div class="menu-text" @click="()=>{this.$router.push('/home')}">Home</div></div>
-    <div class="menu-item"><div class="menu-text" @click="()=>{this.$router.push('/work')}">Our Work</div></div>
-    <div class="menu-item"><div class="menu-text" @click="()=>{this.$router.push('/products')}">Products</div></div>
-    <div class="menu-item"><div class="menu-text" @click="()=>{this.$router.push('/docs')}">Docs</div></div>
-    <div class="menu-item"><div class="menu-text" @click="()=>{this.$router.push('/contact')}">Contact</div></div>
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
+  <Sidebar />
+  <div :style="{'margin-left': sidebarWidth }">
+    <router-view />
   </div>
-
-</div>
-
-  <router-view />
 </template>
 
 <script>
-
+import { sidebarWidth } from '@/components/sidebar/state'
+import Sidebar from '@/components/sidebar/Sidebar'
 export default {
+  components: { Sidebar },
+  setup(){
+    return {
+      sidebarWidth
+    }
+  }
 }
 </script>
 
@@ -27,16 +24,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 .menu {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 10px;
   height: 60px;
+  background-color: #fff;
 }
 .menu-item {
   flex: 1;
@@ -54,7 +49,7 @@ export default {
   width: fit-content;
 }
 .menu-text:hover {
-  border-bottom: 2px solid #c278ff;
+  border-bottom: 2px solid #fc4f00;
 }
 /* .menu-center {
   font-size: 36px;

@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index.js' // <---
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
-
+import '@fortawesome/fontawesome-free/js/all'
 
 const app = createApp(App);
 
